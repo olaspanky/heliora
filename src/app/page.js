@@ -18,10 +18,9 @@ const HelioraApp = () => {
     treatment: 'Routine Medical Check-up',
     amount: '₦45,000',
     hmoName: 'HealthPlus HMO',
-    submissionDate: '2024-07-10T08:00:00',
-    lastUpdated: '2024-07-14T10:30:00',
-    timeDifferenceMinutes: 5760 // (4 days * 1440 minutes/day) + (2.5 hours * 60 minutes/hour)
-  },
+    submissionDate: '2024-07-10T10:25:00',
+    lastUpdated: '2024-07-10T10:30:00',
+    },
   'HN005678': {
     patientName: 'Emeka Nwosu',
     claimId: 'CLM-2024-005678',
@@ -30,8 +29,7 @@ const HelioraApp = () => {
     amount: '₦25,000',
     hmoName: 'CareFirst HMO',
     submissionDate: '2024-07-12T09:15:00',
-    lastUpdated: '2024-07-14T14:45:00',
-    timeDifferenceMinutes: 3030 // (2 days * 1440 minutes/day) + (5.5 hours * 60 minutes/hour)
+    lastUpdated: '2024-07-12T09:20:00',
   },
   'HN009876': {
     patientName: 'Fatima Abdullahi',
@@ -41,8 +39,7 @@ const HelioraApp = () => {
     amount: '₦120,000',
     hmoName: 'MediGuard HMO',
     submissionDate: '2024-07-08T11:20:00',
-    lastUpdated: '2024-07-13T16:50:00',
-    timeDifferenceMinutes: 7410, // (5 days * 1440 minutes/day) + (5.5 hours * 60 minutes/hour)
+    lastUpdated: '2024-07-08T11:50:00',
     rejectionReason: 'Pre-existing condition not covered'
   }
 };
@@ -224,13 +221,31 @@ const HelioraApp = () => {
                   <p className="text-lg font-semibold text-gray-900">{claimStatus.amount}</p>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-600">Submission Date</label>
-                  <p className="text-lg text-gray-900">{claimStatus.submissionDate}</p>
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-600">Last Updated</label>
-                  <p className="text-lg text-gray-900">{claimStatus.lastUpdated}</p>
-                </div>
+  <label className="block text-sm font-medium text-gray-600">Submission Date</label>
+  <p className="text-lg text-gray-900">
+    {new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }).format(new Date(claimStatus.submissionDate))}
+  </p>
+</div>
+<div>
+  <label className="block text-sm font-medium text-gray-600">Last Updated</label>
+  <p className="text-lg text-gray-900">
+    {new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      hour12: true,
+    }).format(new Date(claimStatus.lastUpdated))}
+  </p>
+</div>
               </div>
             </div>
 
