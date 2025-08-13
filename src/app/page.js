@@ -10,36 +10,42 @@ const HelioraApp = () => {
   const [userPhone, setUserPhone] = useState('');
 
   // Demo data for different hospital numbers
-  const demoData = {
-    'HN001234': {
-      patientName: 'Adaora Okafor',
-      claimId: 'CLM-2024-001234',
-      status: 'approved',
-      treatment: 'Routine Medical Check-up',
-      amount: '₦45,000',
-      submissionDate: '2024-07-10',
-      lastUpdated: '2024-07-14'
-    },
-    'HN005678': {
-      patientName: 'Emeka Nwosu',
-      claimId: 'CLM-2024-005678',
-      status: 'pending',
-      treatment: 'Malaria Treatment',
-      amount: '₦25,000',
-      submissionDate: '2024-07-12',
-      lastUpdated: '2024-07-14'
-    },
-    'HN009876': {
-      patientName: 'Fatima Abdullahi',
-      claimId: 'CLM-2024-009876',
-      status: 'rejected',
-      treatment: 'Dental Surgery',
-      amount: '₦120,000',
-      submissionDate: '2024-07-08',
-      lastUpdated: '2024-07-13',
-      rejectionReason: 'Pre-existing condition not covered'
-    }
-  };
+ const demoData = {
+  'HN001234': {
+    patientName: 'Adaora Okafor',
+    claimId: 'CLM-2024-001234',
+    status: 'approved',
+    treatment: 'Routine Medical Check-up',
+    amount: '₦45,000',
+    hmoName: 'HealthPlus HMO',
+    submissionDate: '2024-07-10T08:00:00',
+    lastUpdated: '2024-07-14T10:30:00',
+    timeDifferenceMinutes: 5760 // (4 days * 1440 minutes/day) + (2.5 hours * 60 minutes/hour)
+  },
+  'HN005678': {
+    patientName: 'Emeka Nwosu',
+    claimId: 'CLM-2024-005678',
+    status: 'pending',
+    treatment: 'Malaria Treatment',
+    amount: '₦25,000',
+    hmoName: 'CareFirst HMO',
+    submissionDate: '2024-07-12T09:15:00',
+    lastUpdated: '2024-07-14T14:45:00',
+    timeDifferenceMinutes: 3030 // (2 days * 1440 minutes/day) + (5.5 hours * 60 minutes/hour)
+  },
+  'HN009876': {
+    patientName: 'Fatima Abdullahi',
+    claimId: 'CLM-2024-009876',
+    status: 'rejected',
+    treatment: 'Dental Surgery',
+    amount: '₦120,000',
+    hmoName: 'MediGuard HMO',
+    submissionDate: '2024-07-08T11:20:00',
+    lastUpdated: '2024-07-13T16:50:00',
+    timeDifferenceMinutes: 7410, // (5 days * 1440 minutes/day) + (5.5 hours * 60 minutes/hour)
+    rejectionReason: 'Pre-existing condition not covered'
+  }
+};
 
   const handleSearch = async () => {
     if (!hospitalNumber.trim()) {
