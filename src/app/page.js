@@ -206,6 +206,10 @@ const HelioraApp = () => {
                   <p className="text-lg font-semibold text-gray-900">{claimStatus.patientName}</p>
                 </div>
                 <div>
+                  <label className="block text-sm font-medium text-gray-600">HMO Name</label>
+                  <p className="text-lg font-semibold text-gray-900">{claimStatus.hmoName}</p>
+                </div>
+                <div>
                   <label className="block text-sm font-medium text-gray-600">Claim ID</label>
                   <p className="text-lg font-mono text-gray-900">{claimStatus.claimId}</p>
                 </div>
